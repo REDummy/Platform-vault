@@ -1,6 +1,7 @@
-# Welcome to GitHub Desktop!
+# Welcome!
 
-This is your README. READMEs are where you can communicate what your project is and how to use it.
+This is repository for College usage, in particular the class "Pemrograman Berbasis Platform"
 
-Write your name on line 6, save it, and then head back to GitHub Desktop.
-Antonius Miquel
+By : 
+Antonius Miquel A
+215314181
