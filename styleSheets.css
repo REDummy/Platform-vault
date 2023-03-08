@@ -1,0 +1,16 @@
+h1,h3  {
+    color: #009;
+    font-size: 1em;
+    margin-bottom: .3em;
+    text-align: center;
+    text-decoration: underline;
+  }
+        h2{
+  color: rgb(76, 170, 199);"
+  }
+        table, th, td {
+          border: 1px solid black;
+  }
+        body{
+          background-color: aqua;
+  }
