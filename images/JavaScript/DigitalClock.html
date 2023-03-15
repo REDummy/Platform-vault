@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contoh Jam JavaScript</title>
+    <!--Menentukan posisi jam, font size dan font family-->
+    <style>
+        #jam {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            font-size: 60px;
+            font-family: 'Trebuchet MS';
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div id="jam"></div>
+
+    <script>
+        function updateJam() {
+            //Menyimpan komponen dari jam ke variable
+
+            var time = new Date();
+            var jam = time.getHours();
+            var menit = time.getMinutes();
+            var detik = time.getSeconds();
+            var mili = time.getMilliseconds();
+
+
+            //Jika nilai variable diatas kurang dari 10, tambah 0 di depannya
+            if (jam < 10) {
+                jam = "0" + jam;
+            }
+
+            if (menit < 10) {
+                menit = "0" + menit;
+            }
+
+            if (detik < 10) {
+                detik = "0" + detik;
+            }
+            if (mili < 10) {
+                mili = "00" + mili;
+            } else if (mili < 99) {
+                mili = "0" + mili;
+            }
+
+            //gabung semua komponen variable diatas ke sebuah variable waktu
+            var waktu = "[" + jam + ":" + menit + ":" + detik + ":" + mili + "]";
+            //set bagian dari html dengan id jam dengan variable waktu
+            document.getElementById("jam").innerHTML = waktu;
+
+            //random color generator
+            var warna = Math.floor(Math.random() * 16777215).toString(16);
+            document.getElementById("jam").style.color = "#" + warna;//set warna dari bagian html dengan id jam dengan variable diatas
+            var warna2 = Math.floor(Math.random() * 16777215).toString(16);
+            document.getElementById("body").style.backgroundColor = "#" + warna2;//set warna bg dari bagian html dengan id body dengan variable diatas
+
+        }
+
+        //set interval untuk menjalankan function updateJam setiap 70 ms
+        setInterval(updateJam, 70);
+    </script>
+</body>
+
+</html>

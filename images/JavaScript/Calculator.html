@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Kalkulator</title>
+	<script>
+		function hitung() {
+			//simpan nilai yang di input pada field ke variable
+
+			var num1 = parseInt(document.getElementById("num1").value);
+			var num2 = parseInt(document.getElementById("num2").value);
+			var operasi = document.getElementById("operasi").value;//simpan value dari operasi yang di pilih
+			var hasil;
+
+			//menyimpan hasil operasi ke variable hasil sesuai dengan value opsi yang di pilih
+			switch (operasi) {
+				case "tambah":
+					hasil = num1 + num2;
+					break;
+				case "kurang":
+					hasil = num1 - num2;
+					break;
+				case "kali":
+					hasil = num1 * num2;
+					break;
+				case "bagi":
+					hasil = num1 / num2;
+					break;
+			}
+			//set bagian dari html dengan id hasil dengan variable hasil
+			document.getElementById("hasil").innerHTML = hasil;
+		}
+	</script>
+</head>
+
+<body>
+	<h2>Kalkulator Sederhana</h2>
+	<!--Menggunakan table untuk input angka pertama dan angka kedua-->
+
+	<table>
+		<tr>
+			<td><label for="num1">Masukkan Angka Pertama :</label></td>
+			<td><input type="number" id="num1"></td>
+		</tr>
+		<tr>
+			<td><label for="num2">Masukkan Angka Kedua :</label></td>
+			<td><input type="number" id="num2"></td>
+		</tr>
+	</table>
+
+	<p>Pilih Operasi Hitung:
+		<!--Menggunakan Select dan option  untuk membuat layout drop down dan menyimpan opsi yang di pilih dengan value yang sesuai-->
+
+		<select id="operasi" name="operasi">
+			<option value="tambah">Tambah</option>
+			<option value="kurang">Kurang</option>
+			<option value="kali">Kali</option>
+			<option value="bagi">Bagi</option>
+		</select>
+	</p>
+	<!--Menggunakan button untuk menjalankan function hitung ketika di click-->
+
+	<button onclick="hitung()">Hitung</button>
+	<!--Menggunakan table untuk membagi teks hasil dan hasil dari perhitungan-->
+	<table>
+		<tr>
+			<td>Hasil : </td>
+			<td><output type="number" id="hasil"></td>
+		</tr>
+</body>
+
+</html>
