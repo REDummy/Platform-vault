@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Byte Converter</title>
+    <script>
+        function formatBytes(bytes, decimals = 2) {
+            // ref : 
+            // https://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript
+            if (!+bytes) return '0 Bytes'
+
+            const k = 1024
+            const sizes = ['Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']
+
+            //Mencari satuan dengan mencari nilai terkecil dari pembagian bytes dan k yang sudah di log, sehingga bisa terlihat pangkat berapa bytes nya
+            const i = Math.floor(Math.log(bytes) / Math.log(k))
+
+            //mengembalikan bytes dibagi k pangkat i yang di bulatkan ke 2 decimal dan menambahkan satuan sesuai i
+            return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`
+        }
+        function convertByte() {
+            //script untuk menyimpan input dan mengubah html dari cell dengan id bytes 
+            var inputByte = document.getElementById("inputByte").value;
+            document.getElementById("bytes").innerHTML = formatBytes(inputByte);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Konversi Byte Sederhana </h1>
+    <h3>Enter a value in bytes:</h3>
+    <input type="number" id="inputByte" placeholder="Enter value in bytes">
+    <br>
+    <br>
+    <!-- Memanggil function convertByte ketika button di click-->
+    <button onclick="convertByte()">Konversi</button>
+    <table>
+        <tr>
+            <td>Hasil : </td>
+            <td><output type="number" id="bytes"></td>
+        </tr>
+
+</body>
+
+</html>
