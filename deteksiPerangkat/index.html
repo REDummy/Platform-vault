@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Perangkat yang Digunakan</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      function isMobileDevice() {
+        return /Mobi/i.test(navigator.userAgent);
+
+        // Fungsi isMobileDevice() menggunakan ekspresi reguler /Mobi/i
+        // untuk mencocokkan string "Mobi" dalam user agent string.
+        // Jika cocok, itu berarti perangkat client adalah perangkat mobile.
+      }
+
+      // Eksekusi kode setelah halaman selesai dimuat
+      window.onload = function () {
+        var outputElement = document.getElementById("output");
+        var imageElement = document.getElementById("device-image");
+
+        if (isMobileDevice()) {
+          outputElement.innerHTML = "Selamat datang di aplikasi MOBILE!";
+          imageElement.src = "gambar/mobile.png";
+          imageElement.classList.add("auto-size");
+        } else {
+          outputElement.innerHTML = "Selamat datang di website DESKTOP!";
+          imageElement.src = "gambar/default.png";
+          imageElement.classList.remove("auto-size");
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Deteksi Perangkat</h1>
+    <div id="output" class="welcome-message"></div>
+    <img id="device-image" src="" alt="Gambar Perangkat" />
+  </body>
+</html>
